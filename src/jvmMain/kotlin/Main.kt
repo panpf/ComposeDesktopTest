@@ -27,6 +27,7 @@ import com.github.panpf.zoomimage.compose.subsampling.subsampling
 import com.github.panpf.zoomimage.compose.zoom.zoomable
 import com.github.panpf.zoomimage.compose.zoom.zooming
 import com.github.panpf.zoomimage.subsampling.ImageSource
+import com.github.panpf.zoomimage.zoom.OneFingerScaleSpec
 import kotlin.math.roundToInt
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -44,6 +45,7 @@ fun App() {
                 )
         }
         LaunchedEffect(Unit) {
+            zoomState.zoomable.oneFingerScaleSpec = OneFingerScaleSpec.Default
             zoomState.subsampling.showTileBounds = true
             zoomState.subsampling.setImageSource(
                 ImageSource.fromResource("sample_exif_girl_normal.jpg")
